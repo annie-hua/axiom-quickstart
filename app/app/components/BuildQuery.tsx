@@ -3,14 +3,13 @@
 import { useAxiomCircuit } from "@axiom-crypto/react";
 import { CircuitInputs } from "../lib/circuit/circuit";
 import { useEffect } from "react";
-import LoadingAnimation from "./ui/LoadingAnimation";
-// import ClaimAirdropClient from "./ClaimAirdropClient";
+import Button from '../components/ui/Button';
 
 export default function BuildQuery({
   inputs,
   callbackAddress,
   callbackExtraData,
-  refundee
+  refundee,
 }: {
   inputs: CircuitInputs;
   callbackAddress: string;
@@ -29,30 +28,16 @@ export default function BuildQuery({
   }, [setParams, inputs, callbackAddress, callbackExtraData, refundee]);
 
   const buildQuery = async () => {
-    console.log("buildQuery called")
     if (!areParamsSet) {
-      console.log("params not set")
       return;
     }
-    console.log("building query")
     await build();
   };
-
-  useEffect(() => {
-    buildQuery();
-  }, [build, areParamsSet]);
-
-  if (!builtQuery) {
-    return (
-      <>
-      <div className="flex flex-row items-center font-mono gap-2">
-        {"Building Query"} <LoadingAnimation />
-      </div>
-
-      <div onClick={buildQuery} className="flex flex-row items-center font-mono gap-2">
-        build
-        </div>
-        </>
-    );
-  }
+  return (
+    <div className="flex justify-center items-center mt-4">
+      <Button className="bg-blue-500 hover:bg-blue-700 text-gray font-bold py-2 px-4 rounded" onClick={() => buildQuery()}>
+        Generate and Send Proof on Goerli
+      </Button>
+    </div>
+  );
 }

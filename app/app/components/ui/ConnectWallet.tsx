@@ -35,18 +35,24 @@ export default function ConnectWallet({ connected }: { connected: string }) {
 
   if (isConnected) {
     return (
-      <Button
-        onClick={() => open({ view: 'Account' })}
-      >
-        {ensName ? ensName : shortenAddress(address as string)}
-      </Button>
+      <div className="flex justify-center items-center mt-4">
+
+        <Button className="bg-blue-500 hover:bg-blue-700 text-gray font-bold py-2 px-4 rounded"
+          onClick={() => open({ view: 'Account' })}
+        >
+          {ensName ? ensName : shortenAddress(address as string)}
+        </Button>
+      </div>
+
     )
   }
 
   return (
-    <div>
-      <Button onClick={() => open()}>Connect Wallet</Button>
-      {error && <div>{error.message}</div>}
+    <div className="flex justify-center items-center mt-4">
+      <Button className="bg-blue-500 hover:bg-blue-700 text-gray font-bold py-2 px-4 rounded" onClick={() => open()}>
+        Connect Wallet
+      </Button>
+      {error && <div className="text-red-500 mt-2">{error.message}</div>}
     </div>
   )
 }
