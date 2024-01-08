@@ -31,19 +31,6 @@ const Home: React.FC<PageProps> = ({ searchParams }) => {
     return <ConnectWallet connected={connected} />;
   }
 
-  //  This function is called when the button is clicked
-   const handleClick = async () => {
-    const inputs = {
-      address: connected,
-      blockNumber: 1,
-    };
-    <BuildQuery
-          inputs={inputs}
-          callbackAddress={connected}
-          callbackExtraData={bytes32(connected)}
-        />
-  };
-
   const solutionCode1 = 
   `
   // Since the blockNumber is a variable input, let's add it to the results that will be sent to my callback function:
@@ -122,7 +109,15 @@ const Home: React.FC<PageProps> = ({ searchParams }) => {
         Sending a Query<br />
         Now that this Next.js dApp includes the Axiom circuit file, we can go ahead 
         and have the user connect their wallet, which will then pass their address as an input to the circuit. The user’s browser generates a local client-side proof, which we send as an on-chain Query to the Axiom ZK prover to aggregate into a ZK proof that can be verified on-chain. We ask the user to submit 0.0205 ETH with their Query, which covers the cost of the proving and the callback.<br />
-        <button onClick={handleClick}>Generate and Send Proof on Goerli</button>
+        {/* <button onClick={handleClick}>Generate and Send Proof on Goerli</button> */}
+        <BuildQuery
+          inputs={{
+            address: connected,
+            blockNumber: 1,
+          }}
+          callbackAddress={connected}
+          callbackExtraData={bytes32(connected)}
+        />
       </li>
       <li>
         See status of a Query<br />
