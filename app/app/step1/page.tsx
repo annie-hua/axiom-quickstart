@@ -26,7 +26,6 @@ addToCallback(incNonce);
       <Head>
         <title>Step 1: Description of Circuit</title>
         <meta name="description" content="Description of Circuit" />
-        {/* Add link to your CSS framework or custom stylesheet here */}
       </Head>
 
       <main className="container mx-auto p-4">

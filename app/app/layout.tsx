@@ -20,8 +20,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      {/* <Router> */}
-
       <Providers>
               <AxiomProvider>
               <div className="flex min-h-screen bg-gray-100">
@@ -32,8 +30,6 @@ export default function RootLayout({
             </div>
               </AxiomProvider>
         </Providers>
-        {/* </Router> */}
-
         </body>
     </html>
 
