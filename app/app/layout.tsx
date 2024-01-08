@@ -3,8 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
 import AxiomProvider from './axiomProvider';
-import Sidebar from './components/ui/Sidebar'; // Import your Sidebar component
-import { BrowserRouter as Router } from 'react-router-dom';
+import Sidebar from './components/ui/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] })
 
