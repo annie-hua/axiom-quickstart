@@ -10,10 +10,12 @@ export default function BuildQuery({
   inputs,
   callbackAddress,
   callbackExtraData,
+  refundee
 }: {
   inputs: CircuitInputs;
   callbackAddress: string;
   callbackExtraData: string;
+  refundee: string;
 }) {
   const {
     build,
@@ -23,8 +25,8 @@ export default function BuildQuery({
   } = useAxiomCircuit();
 
   useEffect(() => {
-    setParams(inputs, callbackAddress, callbackExtraData);
-  }, [setParams, inputs, callbackAddress, callbackExtraData]);
+    setParams(inputs, callbackAddress, callbackExtraData, refundee);
+  }, [setParams, inputs, callbackAddress, callbackExtraData, refundee]);
 
   const buildQuery = async () => {
     console.log("buildQuery called")

@@ -12,12 +12,17 @@ interface Page {
 const Sidebar: React.FC = () => {
   const [pages, setPages] = useState<Page[]>([
     { title: 'Introduction', completed: false, path: '/' },
-    { title: 'Step 1: Introduction', completed: false, path: '/step1' }
-    // ... other pages
+    { title: 'Step 1: Description of Circuit', completed: false, path: '/step1' },
+    { title: 'Step 2: Compile the Circuit', completed: false, path: '/step2' },
+    { title: 'Step 3: Fill Out the Callback Function', completed: false, path: '/step3' },
+    { title: 'Step 4: Sending a Query', completed: false, path: '/step4' },
+    { title: 'Step 5:  See status of a Query', completed: false, path: '/step5' },
+    { title: 'Step 6: What’s next', completed: false, path: '/step6' },
+
   ]);
 
   return (
-    <div className="w-64 h-screen bg-white p-5">
+    <div className="w-80 h-screen bg-white p-5">
       <ul>
         {pages.map((page, index) => (
           <li key={index} className="flex items-center mb-2">

@@ -117,6 +117,7 @@ const Home: React.FC<PageProps> = ({ searchParams }) => {
           }}
           callbackAddress={connected}
           callbackExtraData={bytes32(connected)}
+          refundee={connected}
         />
       </li>
       <li>
